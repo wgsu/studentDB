@@ -1,2 +1,2 @@
 # studentDB
-database convert from a relational database design by er model
+ relational database convert from an er model
