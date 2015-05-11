@@ -74,6 +74,18 @@ INSERT INTO `chairof` (`I_ID`, `D_ID`) VALUES
 (9, 'soc');
 
 -- --------------------------------------------------------
+--
+-- Triggers `chairof`
+--
+DELIMITER //
+CREATE TRIGGER `noDelete` BEFORE DELETE ON `chairof`
+ FOR EACH ROW BEGIN
+  IF OLD.I_ID = 1 THEN -- Abort when trying to remove this record
+    CALL cannot_delete_error;
+  END IF;
+END
+//
+DELIMITER ;
 
 --
 -- Table structure for table `course`
